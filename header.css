@@ -1,0 +1,16 @@
+
+body{
+	margin:0px;
+}
+#header{
+	height:80px;
+	background:	rgba(0, 0, 255, 0.5);;
+	opacity: 0.5;
+}
+p
+{
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 500%;
+}
