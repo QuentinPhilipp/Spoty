@@ -1,4 +1,7 @@
 {
+   "type": "FeatureCollection",
+   "features": [
+  {
     "type": "Feature",
     "geometry": {
         "type": "Point",
@@ -51526,4 +51529,6 @@
     "properties": {
         "name": "Goose Bay Beach"
     }
+}
+]
 }
