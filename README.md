@@ -8,5 +8,5 @@ Clone projet dans /var/www/htdocs
 
 git clone https://github.com/QuentinPhilipp/Spoty.git
 
-Access to application http://localhost:80/spoty.html
+Access to application http://localhost/Spoty/spoty.html
 
