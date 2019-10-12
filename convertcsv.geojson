@@ -5,7 +5,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ -68.2397319808,44.3593807753 ]
+       "coordinates":  [ -48.2397319808,-4.3593807753 ]
     },
     "properties": {
     "name":"Sainte-Marguerite",
@@ -41,7 +41,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ -84.1302615685733,32.197905290823 ]
+       "coordinates":  [ -48.1302615685733,-4.197905290823 ]
     },
     "properties": {
     "name":"Le Vougot",
@@ -77,7 +77,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ -82.8370902853041,36.1562449930463 ]
+       "coordinates":  [ -48.8370902853041,-4.1562449930463 ]
     },
     "properties": {
     "name":"",
@@ -113,7 +113,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ -77.7359854016,39.462381614 ]
+       "coordinates":  [ -48.7359854016,-4.462381614 ]
     },
     "properties": {
     "name":"La Baule",
@@ -149,7 +149,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ -78.8027430409,37.3826448073 ]
+       "coordinates":  [ -48.8027430409,-4.3826448073 ]
     },
     "properties": {
     "name":"Pont Mahé",
@@ -185,7 +185,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ -75.2453836072023,38.0556022623662 ]
+       "coordinates":  [ -48.2453836072023,-4.0556022623662 ]
     },
     "properties": {
     "name":"Plage des palandrins",

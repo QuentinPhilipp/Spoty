@@ -2,22 +2,26 @@
 <head>    
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.4.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
     <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"/>
+    
     <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
     <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
     
     <meta name="viewport" content="width=device-width,
         initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <style>#map_9f6dc63543ab430486d141b68eb2f361 {
+    <style>#map_b009fcf435914c9d97f8c29c0a3c77b7 {
         position: relative;
         width: 100.0%;
         height: 100.0%;
@@ -28,27 +32,28 @@
 </head>
 <body>    
     
-    <div class="folium-map" id="map_9f6dc63543ab430486d141b68eb2f361" ></div>
+    <div class="folium-map" id="map_b009fcf435914c9d97f8c29c0a3c77b7" ></div>
 </body>
 <script>    
+    
     
         var bounds = null;
     
 
-    var map_9f6dc63543ab430486d141b68eb2f361 = L.map(
-        'map_9f6dc63543ab430486d141b68eb2f361', {
+    var map_b009fcf435914c9d97f8c29c0a3c77b7 = L.map(
+        'map_b009fcf435914c9d97f8c29c0a3c77b7', {
         center: [48.38955, -4.089069],
         zoom: 10,
         maxBounds: bounds,
         layers: [],
         worldCopyJump: false,
         crs: L.CRS.EPSG3857,
-        zoomControl: false,
+        zoomControl: true,
         });
 
 
     
-    var tile_layer_f32a5f26368543c4889befaaa414f303 = L.tileLayer(
+    var tile_layer_1ef36e76e894453588b14670b5757073 = L.tileLayer(
         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         {
         "attribution": null, 
@@ -60,14 +65,591 @@
         "opacity": 1, 
         "subdomains": "abc", 
         "tms": false
-}).addTo(map_9f6dc63543ab430486d141b68eb2f361);
+}).addTo(map_b009fcf435914c9d97f8c29c0a3c77b7);
 
-    
-    var marker_3ba38d5cead84e44939453c73e531757 = L.marker(
-        [48.45678, -4.12345],
-        {
-            icon: new L.Icon.Default(),
-            }
-        ).addTo(map_9f6dc63543ab430486d141b68eb2f361);
+    var geo ={
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -4.298937,  48.188593 ]
+    },
+    "properties": {
+    "name":"Pentrez",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -4.447596,48.236065 ]
+    },
+    "properties": {
+    "name":"Plage de l'aber",
+    "frequentation":"",
+    "city":" ",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":" ",
+    "rules":" ",
+    "parking":" ",
+    "association":"",
+    "shop":" ",
+    "school":" ",
+    "sailmaker":"",
+    "accommodations":" ",
+    "camping":" ",
+    "report_txt":" ",
+    "report_pic":" ",
+    "desc":" ",
+    "forum":"",
+    "comments":" ",
+    "previsions":" ",
+    "hours":" ",
+    "anemometre":" ",
+    "precipitations":" ",
+    "webcam":" ",
+    "temperature":" "
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -4.767251,48.366015 ]
+    },
+    "properties": {
+    "name":"Les blancs sablons",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -4.606791, 48.594166 ]
+    },
+    "properties": {
+    "name":"Plage Sainte Marguerite",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -4.443228,48.639587 ]
+    },
+    "properties": {
+    "name":"Guisseny",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [   -4.657216,48.571141 ]
+    },
+    "properties": {
+    "name":"Tréompan, les trois moutons",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -4.237804,48.650788 ]
+    },
+    "properties": {
+    "name":"Keremma",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -4.138756,48.692717 ]
+    },
+    "properties": {
+    "name":"Les amiets",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -3.809287,48.711889 ]
+    },
+    "properties": {
+    "name":"Priel Tregastel",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -3.780023,48.701735 ]
+    },
+    "properties": {
+    "name":"Saint Jean du doigt",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -3.568454,48.680279 ]
+    },
+    "properties": {
+    "name":"Saint Michel en Greve",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -4.521801,48.629512 ]
+    },
+    "properties": {
+    "name":"",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -4.566347,48.624719 ]
+    },
+    "properties": {
+    "name":"Lilia",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -4.566047,48.616662 ]
+    },
+    "properties": {
+    "name":"Saint cava",
+    "frequentation":"",
+    "city":"",
+    "difficulty":"",
+    "wind_sector":"",
+    "tide_hour":"",
+    "picture":"",
+    "danger":"",
+    "rules":"",
+    "parking":"",
+    "association":"",
+    "shop":"",
+    "school":"",
+    "sailmaker":"",
+    "accommodations":"",
+    "camping":"",
+    "report_txt":"",
+    "report_pic":"",
+    "desc":"",
+    "forum":"",
+    "comments":"",
+    "previsions":"",
+    "hours":"",
+    "anemometre":"",
+    "precipitations":"",
+    "webcam":"",
+    "temperature":""
+    }
+  }
+]
+};
+
+var vents = { "type": "FeatureCollection",
+    "features": [
+      { "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-4.606791,48.594166]
+          },
+          "properties": {
+            "vitesse_etabli": "15",
+            "rafales": "20",
+            "unite": "noeuds",
+            "direction": "270",
+            "vagues": "1.5"
+            
+          }
+        },
+        { "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-4.443228, 48.639587]
+          },
+          "properties": {
+            "vitesse_etabli": "12",
+            "rafales": "28",
+            "unite": "noeuds",
+            "direction": "220",
+            "vagues": "1.1"
         
+          }
+         }
+        ]
+};
+
+function events(feature,layer)
+{
+    layer.on({ mouseover :  function(e) {
+        layer.bindPopup(layer.feature.properties.name).openPopup();
+                                    }
+    });
+
+    layer.on({click :  function(e) {
+        console.log("click");
+    }});
+}
+
+var new_layer = L.geoJSON(geo,{onEachFeature : events}).addTo(map_b009fcf435914c9d97f8c29c0a3c77b7);
+//add search bar
+var searchControl = new L.Control.Search({
+               layer: new_layer,
+               propertyName: 'name',
+               collapsed: true,
+               textPlaceholder: 'Search',
+               marker: false,
+               moveToLocation: function(latlng, title, map) {
+               var zoom =  12
+                   map.flyTo(latlng, zoom); // access the zoom
+               }
+               });
+
+searchControl.on('search:locationfound', function(e) {
+                   new_layer.setStyle(function(feature){
+                       return feature.properties.style
+                   })
+                   if(e.layer._popup)
+                       e.layer.openPopup();
+               });
+
+searchControl.on('search:collapsed', function(e) {
+                       new_layer.setStyle(function(feature){
+                           return feature.properties.style
+                   });
+               });
+
+map_b009fcf435914c9d97f8c29c0a3c77b7.addControl(searchControl);
+
 </script>
