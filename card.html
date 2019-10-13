@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>    
+    <link rel="stylesheet" href="info.css" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <script>L_PREFER_CANVAS=false; L_NO_TOUCH=false; L_DISABLE_3D=false;</script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
@@ -17,11 +18,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"/>
     
     <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
-    <style>#map {position:relative;top:0;bottom:0;right:0;left:0; z-index:0;}</style>
+    <style>#map {position:relative;top:0;bottom:0;right:0;left:0;}</style>
     
     <meta name="viewport" content="width=device-width,
         initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <style>#map_b009fcf435914c9d97f8c29c0a3c77b7 {
+    <style id="MyStyle">#map_b009fcf435914c9d97f8c29c0a3c77b7 {
         position: relative;
         width: 100.0%;
         height: 100.0%;
@@ -228,7 +229,7 @@ var geo ={
     "anemometre":"https://data.diabox.com/?id=17",
     "precipitations":"https://data.diabox.com/?id=17",
     "webcam":"https://data.diabox.com/?id=17",
-    "temperature":"https://data.diabox.com/?id=17"
+    "temperature":"vent.PNG"
     }
   },
   {
@@ -268,7 +269,7 @@ var geo ={
     "anemometre":"https://data.diabox.com/?id=104",
     "precipitations":"https://data.diabox.com/?id=104",
     "webcam":"https://data.diabox.com/?id=104",
-    "temperature":"https://data.diabox.com/?id=104"
+    "temperature":"vent.PNG"
     }
   },
   {
@@ -645,7 +646,7 @@ var vents = { "type": "FeatureCollection",
             "vitesse_etabli": "15",
             "rafales": "20",
             "unite": "noeuds",
-            "direction": "270",
+            "direction": "260",
             "vagues": "1.5"
             
           }
@@ -653,10 +654,10 @@ var vents = { "type": "FeatureCollection",
         { "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-4.443228,48.639587]
+          "coordinates": [-4.443228,    48.639587]
           },
           "properties": {
-            "vitesse_etabli": "12",
+            "vitesse_etabli": "17",
             "rafales": "28",
             "unite": "noeuds",
             "direction": "220",
@@ -668,24 +669,60 @@ var vents = { "type": "FeatureCollection",
 };
 
 
-function showInformations (informations) {
-  // crée un nouvel élément div
-  var nb =0;
-  for(var i in informations)
-    {
+function showMenu () {
+    //Modificatiaon du style de la carte
+    var divNode = document.createElement("div");
+    divNode.innerHTML = "<br><style>#map_b009fcf435914c9d97f8c29c0a3c77b7 { z-index: -100; }</style>";
+    document.body.appendChild(divNode);
+    // crée un nouvel élément div qui va contenier les informations de niveau 2
     var newDiv = document.createElement("div");
-    // et lui donne un peu de contenu
+    newDiv.setAttribute('id','Menu')
     newDiv.setAttribute('rel', "stylsheet");
-    newDiv.setAttribute("style", "background-color: red; position:absolute;  top: 50px;  left: 50px;");
-    var newContent = document.createTextNode(informations);
-    // ajoute le nœud texte au nouveau div créé
-    newDiv.appendChild(newContent);
+    newDiv.setAttribute("style", "background-color: rgb(33, 133, 171); position:absolute; top: 0px;  left: 0px; width: 30%; height: 100%; z-index: 100");
     // ajoute le nouvel élément créé et son contenu dans le DOM
-    var currentDiv = document.getElementById('div'+nb);
+    var currentDiv = document.getElementById('Menu');
     document.body.insertBefore(newDiv, currentDiv);
-    nb = nb+1;
+
     }
-}
+
+function showInformations(informations) {
+    console.log(informations.length)
+    var newDiv = document.createElement("div");
+    var textnode = document.createTextNode(informations[0]);
+    newDiv.setAttribute("class", "Info")
+    newDiv.appendChild(textnode);
+    document.getElementById('Menu').appendChild(newDiv)
+    //
+    var newDiv = document.createElement("div");
+    var textnode = document.createTextNode(informations[1]);
+    newDiv.appendChild(textnode);
+    document.getElementById('Menu').appendChild(newDiv)
+    //
+    var newDiv = document.createElement("img");
+    newDiv.setAttribute('src',informations[2])
+    newDiv.setAttribute('height', '300px')
+    newDiv.setAttribute('width','384px')
+    document.getElementById('Menu').appendChild(newDiv)
+    //
+    var newDiv = document.createElement("div");
+    var textnode = document.createTextNode("Dangers : "+informations[3]);
+    newDiv.appendChild(textnode);
+    newDiv.setAttribute("style", "font-size : 20px");
+    document.getElementById('Menu').appendChild(newDiv)
+    //
+    var newDiv = document.createElement("img");
+    newDiv.setAttribute('src',informations[4])
+    newDiv.setAttribute('height', 'auto')
+    newDiv.setAttribute('width','384px')
+    document.getElementById('Menu').appendChild(newDiv)
+    //
+    var newDiv = document.createElement("div");
+    var textnode = document.createTextNode("Avis : Spot super sympa, bon vent! ");
+    newDiv.setAttribute("style", "font-size : 20px")
+    newDiv.appendChild(textnode);
+    document.getElementById('Menu').appendChild(newDiv)
+    }
+
 
 
 function events(feature,layer)
@@ -725,8 +762,16 @@ function events(feature,layer)
 
     layer.on({click :  function(e) {
         console.log("click");
-        showInformations(layer.feature.properties.name)
-        //informations.append(layer.feature.)
+        var informations = [];
+        informations.push(layer.feature.properties.name)
+        informations.push(layer.feature.properties.city)
+        informations.push(layer.feature.properties.picture)
+        informations.push(layer.feature.properties.danger)
+        informations.push(layer.feature.properties.temperature)
+        showMenu()
+        //on y ajoute les informations
+        console.log(layer.feature.properties.name)
+        showInformations(informations)
     }});
 }
 

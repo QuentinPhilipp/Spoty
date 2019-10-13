@@ -1,27 +1,24 @@
-
 body{
-	margin:0px;
-	overflow-y: hidden;
+    margin:0px;
+    overflow-y: hidden;
 }
 #header{
-	height:85px;
-	/* background-color: rgb(171, 103, 15); */
-	background-color: rgb(33, 15, 171);
+    height:85px;
+    /* background-color: rgb(171, 103, 15); */
+    background-color: rgb(33, 15, 171);
 }
-
 #fond{
-	height: 80%;
-	width: 100%;
-	background : rgb(15, 133, 171);
-	text-align: center;
-	margin: auto;
+    height: 80%;
+    width: 100%;
+    background : rgb(15, 133, 171);
+    text-align: center;
+    margin: auto;
 }
-
 p
 {
-    color: rgb(255, 255, 255);
-    text-align:center;
-		font-family: 'Big Shoulders Text';
-    font-size: 300%;
-		padding-top: 10px
+   color: rgb(255, 255, 255);
+   text-align:center;
+        font-family: 'Big Shoulders Text';
+   font-size: 300%;
+        padding-top: 10px
 }
