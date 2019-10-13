@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"/>
     
     <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
-    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <style>#map {position:relative;top:0;bottom:0;right:0;left:0; z-index:0;}</style>
     
     <meta name="viewport" content="width=device-width,
         initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -31,9 +31,7 @@
     </style>
 </head>
 <body>    
-    
     <div class="folium-map" id="map_b009fcf435914c9d97f8c29c0a3c77b7" ></div>
-    <div id="right_panel" class=""></div>
 </body>
 <script>    
     
@@ -49,10 +47,12 @@
         layers: [],
         worldCopyJump: false,
         crs: L.CRS.EPSG3857,
-        zoomControl: true,
+        zoomControl: false,
         });
 
-
+L.control.zoom({
+     position:'topright'
+}).addTo(map_b009fcf435914c9d97f8c29c0a3c77b7);
     
     var tile_layer_1ef36e76e894453588b14670b5757073 = L.tileLayer(
         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -68,7 +68,7 @@
         "tms": false
 }).addTo(map_b009fcf435914c9d97f8c29c0a3c77b7);
 
-    var geo ={
+var geo ={
    "type": "FeatureCollection",
    "features": [
   {
@@ -632,8 +632,7 @@
     }
   }
 ]
-}
-
+}   ;
 
 var vents = { "type": "FeatureCollection",
     "features": [
@@ -646,7 +645,7 @@ var vents = { "type": "FeatureCollection",
             "vitesse_etabli": "15",
             "rafales": "20",
             "unite": "noeuds",
-            "direction": "280",
+            "direction": "270",
             "vagues": "1.5"
             
           }
@@ -654,10 +653,10 @@ var vents = { "type": "FeatureCollection",
         { "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-4.443228, 48.639587]
+          "coordinates": [-4.443228,48.639587]
           },
           "properties": {
-            "vitesse_etabli": "17",
+            "vitesse_etabli": "12",
             "rafales": "28",
             "unite": "noeuds",
             "direction": "220",
@@ -665,17 +664,40 @@ var vents = { "type": "FeatureCollection",
         
           }
          }
-        ]
+    ]
 };
+
+
+function showInformations (informations) {
+  // crée un nouvel élément div
+  var nb =0;
+  for(var i in informations)
+    {
+    var newDiv = document.createElement("div");
+    // et lui donne un peu de contenu
+    newDiv.setAttribute('rel', "stylsheet");
+    newDiv.setAttribute("style", "background-color: red; position:absolute;  top: 50px;  left: 50px;");
+    var newContent = document.createTextNode(informations);
+    // ajoute le nœud texte au nouveau div créé
+    newDiv.appendChild(newContent);
+    // ajoute le nouvel élément créé et son contenu dans le DOM
+    var currentDiv = document.getElementById('div'+nb);
+    document.body.insertBefore(newDiv, currentDiv);
+    nb = nb+1;
+    }
+}
+
 
 function events(feature,layer)
 {
     layer.on({ mouseover :  function(e) {
+        layer.bindPopup(layer.feature.properties.name).openPopup();
         if(vents.features[0].geometry.coordinates[0]==layer.feature.geometry.coordinates[0] && vents.features[0].geometry.coordinates[1]==layer.feature.geometry.coordinates[1])
         {
             var words = layer.feature.properties.wind_sector.split(';');
             if(vents.features[0].properties.vitesse_etabli>=15 && words[1]<vents.features[0].properties.direction && vents.features[0].properties.direction<words[0])
-            {
+            {   
+                console.log("set green")
                 layer._icon.src='images/marker-icon-green.png';
             }
             else
@@ -703,42 +725,12 @@ function events(feature,layer)
 
     layer.on({click :  function(e) {
         console.log("click");
-            }
-    });
+        showInformations(layer.feature.properties.name)
+        //informations.append(layer.feature.)
+    }});
 }
 
 var new_layer = L.geoJSON(geo,{onEachFeature : events}).addTo(map_b009fcf435914c9d97f8c29c0a3c77b7);
-
-
-console.log(new_layer._layers);
-for(var i in new_layer._layers){
-    console.log(new_layer._layers.i);
-    /*if(vents.features[0].geometry.coordinates[0]==layer.feature.geometry.coordinates[0] && vents.features[0].geometry.coordinates[1]==layer.feature.geometry.coordinates[1])
-        {
-            var words = layer.feature.properties.wind_sector.split(';');
-            if(vents.features[0].properties.vitesse_etabli>=15 && words[1]<vents.features[0].properties.direction && vents.features[0].properties.direction<words[0])
-            {
-                layer._icon.src='images/marker-icon-green.png';
-            }
-            else
-            {
-                layer._icon.src='images/marker-icon-red.png';
-            }            
-        }
-        else if(vents.features[1].geometry.coordinates[0]==layer.feature.geometry.coordinates[0] && vents.features[1].geometry.coordinates[1]==layer.feature.geometry.coordinates[1])
-        {
-            var words = layer.feature.properties.wind_sector.split(';');
-            if(vents.features[1].properties.vitesse_etabli>=15 && words[1]<=vents.features[1].properties.direction && vents.features[1].properties.direction<=words[0])
-            {
-                layer._icon.src='images/marker-icon-green.png';
-            }
-            else
-            {
-                layer._icon.src='images/marker-icon-red.png';
-            }
-        }*/
-
-}    
 //add search bar
 var searchControl = new L.Control.Search({
                layer: new_layer,
@@ -746,7 +738,7 @@ var searchControl = new L.Control.Search({
                collapsed: true,
                textPlaceholder: 'Search',
                marker: false,
-               position: 'topright',
+               position:'topright',
                moveToLocation: function(latlng, title, map) {
                var zoom =  12
                    map.flyTo(latlng, zoom); // access the zoom
